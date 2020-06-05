@@ -61,18 +61,18 @@
     <LinearLayout
         android:layout_alignParentBottom="true"
         android:gravity="center"
+        android:background="@color/colorWhite"
         android:orientation="horizontal"
-        android:paddingBottom="17dp"
-        android:paddingTop="17dp"
-        android:paddingEnd="23dp"
-        android:paddingStart="23dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
             android:gravity="center"
-            android:background="@color/colorWhite"
             android:layout_weight="1"
             android:layout_width="0dp"
+            android:paddingBottom="17dp"
+            android:paddingTop="17dp"
+            android:paddingEnd="23dp"
+            android:paddingStart="23dp"
             android:orientation="vertical"
             android:layout_height="wrap_content">
 
@@ -94,6 +94,10 @@
         <LinearLayout
             android:layout_weight="1"
             android:layout_width="0dp"
+            android:paddingBottom="17dp"
+            android:paddingTop="17dp"
+            android:paddingEnd="23dp"
+            android:paddingStart="23dp"
             android:layout_height="wrap_content">
             <Button
                 android:text="Checkout"
