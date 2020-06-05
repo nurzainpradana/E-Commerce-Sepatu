@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".ui.cart.ShippingFragment">
 
-    <include layout="@layout/layout_shipping_item"/>
-    <include layout="@layout/layout_shipping_form"/>
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+        <include layout="@layout/layout_shipping_item"/>
+
+        <include layout="@layout/layout_shipping_form"/>
+
+        <Button
+            android:text="Go To Payment"
+            android:textAllCaps="false"
+            android:background="@drawable/shape_pink"
+            android:textColor="@color/colorWhite"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
 
-</LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
