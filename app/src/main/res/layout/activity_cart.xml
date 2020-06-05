@@ -6,4 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.cart.CartActivity">
 
+    <include layout="@layout/layout_toolbar_cart"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
