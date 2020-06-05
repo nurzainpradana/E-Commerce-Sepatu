@@ -15,6 +15,7 @@
         <include layout="@layout/layout_shipping_form"/>
 
         <Button
+            android:id="@+id/btn_go_to_payment"
             android:text="Go To Payment"
             android:textAllCaps="false"
             android:background="@drawable/shape_pink"

@@ -8,5 +8,25 @@
         android:id="@+id/cartFragment"
         android:name="com.nurzainpradana.ecommercesepatu.ui.cart.CartFragment"
         android:label="Cart"
-        tools:layout="@layout/fragment_cart"/>
+        tools:layout="@layout/fragment_cart">
+        <action
+            android:id="@+id/action_cartFragment_to_shippingFragment"
+            app:destination="@id/shippingFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/shippingFragment"
+        android:name="com.nurzainpradana.ecommercesepatu.ui.cart.ShippingFragment"
+        android:label="Shipping"
+        tools:layout="@layout/fragment_shipping">
+        <action
+            android:id="@+id/action_shippingFragment_to_paymentFragment"
+            app:destination="@id/paymentFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.nurzainpradana.ecommercesepatu.ui.cart.PaymentFragment"
+        android:label="Payment"
+        tools:layout="@layout/fragment_payment"/>
 </navigation>
