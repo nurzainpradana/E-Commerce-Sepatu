@@ -7,4 +7,5 @@
     <color name="colorPink">#e71c4c</color>
     <color name="colorGrey">#9E9E9E</color>
     <color name="colorGreyBlur">#C4C4C4</color>
+    <color name="colorBlack">#000</color>
 </resources>

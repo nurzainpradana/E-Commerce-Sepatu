@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="30dp">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins_bold"
+        android:text="SHIPPING DETAILS"
+        android:textColor="@color/colorBlack"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edt_first_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="7dp"
+        android:background="@drawable/shape_white"
+        android:ems="10"
+        android:fontFamily="@font/open_sans_light_italic"
+        android:hint="First Name"
+        android:inputType="textPersonName"
+        android:paddingLeft="14dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="12dp"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_begin="176dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/edt_last_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:background="@drawable/shape_white"
+        android:ems="10"
+        android:fontFamily="@font/open_sans_light_italic"
+        android:hint="Last Name"
+        android:inputType="textPersonName"
+        android:textSize="13sp"
+        android:paddingLeft="14dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/edt_first_name" />
+
+    <EditText
+        android:id="@+id/edt_address_line"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/shape_white"
+        android:ems="10"
+        android:fontFamily="@font/open_sans_light_italic"
+        android:hint="Address Line"
+        android:inputType="textPersonName"
+        android:paddingLeft="14dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="12dp"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_first_name" />
+
+    <EditText
+        android:id="@+id/edt_town_city"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="7dp"
+        android:background="@drawable/shape_white"
+        android:ems="10"
+        android:fontFamily="@font/open_sans_light_italic"
+        android:hint="Town / City"
+        android:inputType="textPersonName"
+        android:paddingLeft="14dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="12dp"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_address_line" />
+
+    <EditText
+        android:id="@+id/edt_postal_code"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:background="@drawable/shape_white"
+        android:ems="10"
+        android:fontFamily="@font/open_sans_light_italic"
+        android:hint="Postal Code"
+        android:inputType="number"
+        android:paddingLeft="14dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="12dp"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/edt_town_city" />
+
+    <EditText
+        android:id="@+id/edt_country"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/shape_white"
+        android:ems="10"
+        android:fontFamily="@font/open_sans_light_italic"
+        android:hint="Country"
+        android:inputType="textPersonName"
+        android:paddingLeft="14dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="12dp"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_town_city" />
+
+    <EditText
+        android:id="@+id/edt_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="7dp"
+        android:background="@drawable/shape_white"
+        android:ems="10"
+        android:fontFamily="@font/open_sans_light_italic"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="14dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="12dp"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toStartOf="@+id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edt_country" />
+
+    <EditText
+        android:id="@+id/edt_phone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:background="@drawable/shape_white"
+        android:ems="10"
+        android:fontFamily="@font/open_sans_light_italic"
+        android:hint="Phone"
+        android:inputType="phone"
+        android:paddingLeft="14dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="12dp"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/edt_email" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

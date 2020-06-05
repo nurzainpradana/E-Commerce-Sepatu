@@ -7,6 +7,7 @@
     tools:context=".ui.cart.ShippingFragment">
 
     <include layout="@layout/layout_shipping_item"/>
+    <include layout="@layout/layout_shipping_form"/>
 
 
 </LinearLayout>
