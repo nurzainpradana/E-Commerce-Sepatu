@@ -133,7 +133,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+            android:id="@+id/rv_colors"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -152,7 +152,7 @@
             android:textColor="@color/colorBlack"
             android:textSize="13sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+            app:layout_constraintTop_toBottomOf="@+id/rv_colors" />
 
         <TextView
             android:id="@+id/textView20"
@@ -165,10 +165,10 @@
             android:textColor="@color/colorPink"
             android:textSize="13sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+            app:layout_constraintTop_toBottomOf="@+id/rv_colors" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView3"
+            android:id="@+id/rv_size"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -193,6 +193,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/recyclerView3" />
+            app:layout_constraintTop_toBottomOf="@+id/rv_size" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

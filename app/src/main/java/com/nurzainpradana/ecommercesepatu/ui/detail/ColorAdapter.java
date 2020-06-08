@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.nurzainpradana.ecommercesepatu.R;
 import com.nurzainpradana.ecommercesepatu.model.ColorsModel;
+import com.nurzainpradana.ecommercesepatu.model.HomeModel;
 
 import java.util.List;
 

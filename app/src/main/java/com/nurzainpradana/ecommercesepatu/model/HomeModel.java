@@ -1,6 +1,6 @@
 package com.nurzainpradana.ecommercesepatu.model;
 
-public class ColorsModel {
+public class HomeModel {
     private int idProduct;
     private String namaProduct;
     private String statusProduct;
