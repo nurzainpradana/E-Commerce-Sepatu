@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -61,6 +62,6 @@ public class HomeFragment extends Fragment implements HomeAdapter.ItemAdapterCal
 
     @Override
     public void onClick(View view) {
-
+        Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_detailFragment);
     }
 }
