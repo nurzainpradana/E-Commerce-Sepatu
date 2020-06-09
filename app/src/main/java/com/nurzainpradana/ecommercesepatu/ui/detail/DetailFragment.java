@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,14 +15,18 @@ import android.view.ViewGroup;
 
 import com.nurzainpradana.ecommercesepatu.R;
 import com.nurzainpradana.ecommercesepatu.model.ColorsModel;
+import com.nurzainpradana.ecommercesepatu.model.SizeModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DetailFragment extends Fragment implements ColorAdapter.ItemAdapterCallback {
+public class DetailFragment extends Fragment implements ColorAdapter.ItemAdapterCallback, SizeAdapter.ItemAdapterCallback {
 
     private RecyclerView rvColors;
     private List<ColorsModel> colorsModelList;
+
+    private RecyclerView rvSize;
+    private List<SizeModel> sizeModelList;
 
     public DetailFragment() {
         // Required empty public constructor
@@ -44,6 +49,7 @@ public class DetailFragment extends Fragment implements ColorAdapter.ItemAdapter
         super.onViewCreated(view, savedInstanceState);
 
         rvColors = view.findViewById(R.id.rv_colors);
+        rvSize = view.findViewById(R.id.rv_size);
     }
 
     @Override
@@ -59,6 +65,22 @@ public class DetailFragment extends Fragment implements ColorAdapter.ItemAdapter
 
         rvColors.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         rvColors.setAdapter(colorAdapter);
+
+        sizeModelList = new ArrayList<>();
+        sizeModelList.add(new SizeModel(1, "36\nEU"));
+        sizeModelList.add(new SizeModel(2, "37\nEU"));
+        sizeModelList.add(new SizeModel(3, "38\nEU"));
+        sizeModelList.add(new SizeModel(4, "39\nEU"));
+        sizeModelList.add(new SizeModel(5, "40\nEU"));
+        sizeModelList.add(new SizeModel(6, "41\nEU"));
+        sizeModelList.add(new SizeModel(7, "42\nEU"));
+        sizeModelList.add(new SizeModel(8, "43\nEU"));
+
+
+        SizeAdapter sizeAdapter = new SizeAdapter(sizeModelList, this);
+
+        rvSize.setLayoutManager(new GridLayoutManager(getContext(), 4));
+        rvSize.setAdapter(sizeAdapter);
 
     }
 
