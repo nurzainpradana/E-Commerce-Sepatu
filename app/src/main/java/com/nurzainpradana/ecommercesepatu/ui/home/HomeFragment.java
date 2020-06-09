@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.nurzainpradana.ecommercesepatu.R;
 import com.nurzainpradana.ecommercesepatu.model.HomeModel;
@@ -22,7 +24,14 @@ import java.util.List;
 public class HomeFragment extends Fragment implements HomeAdapter.ItemAdapterCallback {
 
     private RecyclerView rvSport;
+    private RecyclerView rvCasual;
     private List<HomeModel> listData;
+
+    private TextView tvActionLayoutSport;
+    private TextView tvActionLayoutCasual;
+    private TextView tvHeaderLayoutCasual;
+    private TextView tvShopNow;
+    private ImageView ivShopNow;
 
     public HomeFragment() {
 
@@ -40,6 +49,21 @@ public class HomeFragment extends Fragment implements HomeAdapter.ItemAdapterCal
         super.onViewCreated(view, savedInstanceState);
 
         rvSport = view.findViewById(R.id.rv_sport);
+        rvCasual = view.findViewById(R.id.rv_casual);
+
+        View headerLayoutSport =  view.findViewById(R.id.layout_header_sport);
+        View headerLayoutCasual =  view.findViewById(R.id.layout_header_casual);
+        View headerLayout =  view.findViewById(R.id.layout_header);
+
+        tvActionLayoutSport = headerLayoutSport.findViewById(R.id.tv_action);
+        tvActionLayoutCasual = headerLayoutCasual.findViewById(R.id.tv_action);
+        tvHeaderLayoutCasual = headerLayoutCasual.findViewById(R.id.tv_title);
+
+        tvShopNow = headerLayout.findViewById(R.id.tv_title);
+        ivShopNow = headerLayout.findViewById(R.id.iv_show_now);
+
+
+
     }
 
     @Override
@@ -58,6 +82,12 @@ public class HomeFragment extends Fragment implements HomeAdapter.ItemAdapterCal
         HomeAdapter homeAdapter = new HomeAdapter(listData, this);
         rvSport.setLayoutManager(linearLayoutManager);
         rvSport.setAdapter(homeAdapter);
+
+        tvHeaderLayoutCasual.setText("Casual Shoes");
+        LinearLayoutManager linearLayoutManager1 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        HomeAdapter homeAdapter1 = new HomeAdapter(listData, this);
+        rvCasual.setLayoutManager(linearLayoutManager1);
+        rvCasual.setAdapter(homeAdapter1);
     }
 
     @Override
