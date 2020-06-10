@@ -24,6 +24,7 @@
                 android:layout_height="wrap_content"/>
 
             <TextView
+                android:id="@+id/title_toolbar"
                 android:text="Keranjang"
                 android:layout_centerHorizontal="true"
                 android:fontFamily="@font/poppins_light"
