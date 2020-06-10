@@ -1,5 +1,6 @@
 package com.nurzainpradana.ecommercesepatu.ui.detail;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,21 +13,25 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.nurzainpradana.ecommercesepatu.R;
 import com.nurzainpradana.ecommercesepatu.model.ColorsModel;
 import com.nurzainpradana.ecommercesepatu.model.SizeModel;
+import com.nurzainpradana.ecommercesepatu.ui.cart.CartActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class DetailFragment extends Fragment implements ColorAdapter.ItemAdapterCallback, SizeAdapter.ItemAdapterCallback {
+public class DetailFragment extends Fragment implements ColorAdapter.ItemAdapterCallback, SizeAdapter.ItemAdapterCallback{
 
     private RecyclerView rvColors;
     private List<ColorsModel> colorsModelList;
 
     private RecyclerView rvSize;
     private List<SizeModel> sizeModelList;
+
+    private Button btnAddToCart;
 
     public DetailFragment() {
         // Required empty public constructor
@@ -50,6 +55,7 @@ public class DetailFragment extends Fragment implements ColorAdapter.ItemAdapter
 
         rvColors = view.findViewById(R.id.rv_colors);
         rvSize = view.findViewById(R.id.rv_size);
+        btnAddToCart = view.findViewById(R.id.btn_add_to_cart);
     }
 
     @Override
@@ -81,6 +87,14 @@ public class DetailFragment extends Fragment implements ColorAdapter.ItemAdapter
 
         rvSize.setLayoutManager(new GridLayoutManager(getContext(), 4));
         rvSize.setAdapter(sizeAdapter);
+
+        btnAddToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToCart = new Intent(getActivity(), CartActivity.class);
+                startActivity(goToCart);
+            }
+        });
 
     }
 

@@ -62,8 +62,6 @@ public class HomeFragment extends Fragment implements HomeAdapter.ItemAdapterCal
         tvShopNow = headerLayout.findViewById(R.id.tv_title);
         ivShopNow = headerLayout.findViewById(R.id.iv_show_now);
 
-
-
     }
 
     @Override
