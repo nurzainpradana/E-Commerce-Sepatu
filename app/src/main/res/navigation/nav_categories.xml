@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/categories_fragment"
+    android:id="@+id/nav_categories">
+    <fragment
+        android:id="@+id/categories_fragment"
+        android:name="com.nurzainpradana.ecommercesepatu.ui.categories.CategoriesFragment"
+        android:label="Categories"
+        tools:layout="@layout/fragment_categories">
+    </fragment>
+
+</navigation>

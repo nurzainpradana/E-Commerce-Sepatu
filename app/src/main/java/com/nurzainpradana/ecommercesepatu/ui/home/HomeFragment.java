@@ -1,5 +1,6 @@
 package com.nurzainpradana.ecommercesepatu.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 
 import com.nurzainpradana.ecommercesepatu.R;
 import com.nurzainpradana.ecommercesepatu.model.HomeModel;
+import com.nurzainpradana.ecommercesepatu.ui.categories.CategoriesActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -86,6 +88,22 @@ public class HomeFragment extends Fragment implements HomeAdapter.ItemAdapterCal
         HomeAdapter homeAdapter1 = new HomeAdapter(listData, this);
         rvCasual.setLayoutManager(linearLayoutManager1);
         rvCasual.setAdapter(homeAdapter1);
+
+        tvShopNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToCategories = new Intent(getActivity(), CategoriesActivity.class);
+                startActivity(goToCategories);
+            }
+        });
+
+        ivShopNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToCategories = new Intent(getActivity(), CategoriesActivity.class);
+                startActivity(goToCategories);
+            }
+        });
     }
 
     @Override
