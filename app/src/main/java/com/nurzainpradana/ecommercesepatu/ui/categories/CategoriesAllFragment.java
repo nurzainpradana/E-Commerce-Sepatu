@@ -18,12 +18,12 @@ import com.nurzainpradana.ecommercesepatu.model.CategoriesModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoriesFragment extends Fragment implements CategoriesAdapter.ItemAdapterCallback{
+public class CategoriesAllFragment extends Fragment implements CategoriesAdapter.ItemAdapterCallback{
 
     private RecyclerView rvCategories;
     private List<CategoriesModel> categoriesModelList;
 
-    public CategoriesFragment() {
+    public CategoriesAllFragment() {
         // Required empty public constructor
     }
 
@@ -36,7 +36,7 @@ public class CategoriesFragment extends Fragment implements CategoriesAdapter.It
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_categories, container, false);
+        return inflater.inflate(R.layout.fragment_categories_all, container, false);
     }
 
     @Override

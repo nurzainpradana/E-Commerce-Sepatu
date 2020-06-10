@@ -6,9 +6,9 @@
     android:id="@+id/nav_categories">
     <fragment
         android:id="@+id/categories_fragment"
-        android:name="com.nurzainpradana.ecommercesepatu.ui.categories.CategoriesFragment"
+        android:name="com.nurzainpradana.ecommercesepatu.ui.categories.CategoriesAllFragment"
         android:label="Categories"
-        tools:layout="@layout/fragment_categories">
+        tools:layout="@layout/fragment_categories_all">
     </fragment>
 
 </navigation>
