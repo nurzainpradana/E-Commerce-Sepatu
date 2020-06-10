@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 
 import com.nurzainpradana.ecommercesepatu.R;
 import com.nurzainpradana.ecommercesepatu.model.CategoriesModel;
+import com.nurzainpradana.ecommercesepatu.model.HomeModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +24,9 @@ public class CategoriesAllFragment extends Fragment implements CategoriesAdapter
 
     private RecyclerView rvCategories;
     private List<CategoriesModel> categoriesModelList;
+
+    private RecyclerView rvShoes;
+    private List<HomeModel> shoesModelList;
 
     public CategoriesAllFragment() {
         // Required empty public constructor
@@ -44,6 +49,7 @@ public class CategoriesAllFragment extends Fragment implements CategoriesAdapter
         super.onViewCreated(view, savedInstanceState);
 
         rvCategories = view.findViewById(R.id.rv_categories);
+        rvShoes = view.findViewById(R.id.rv_shoes);
     }
 
     @Override
@@ -58,6 +64,15 @@ public class CategoriesAllFragment extends Fragment implements CategoriesAdapter
         CategoriesAdapter categoriesAdapter = new CategoriesAdapter(categoriesModelList, this);
         rvCategories.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         rvCategories.setAdapter(categoriesAdapter);
+
+        shoesModelList = new ArrayList<>();
+        shoesModelList.add(new HomeModel(1, "Ariel", "New", "30%", "A"));
+        shoesModelList.add(new HomeModel(2, "Ariel", "New", "30%", "A"));
+        shoesModelList.add(new HomeModel(3, "Ariel", "New", "30%", "A"));
+
+        ShoesAdapter shoesAdapter = new ShoesAdapter(shoesModelList);
+        rvShoes.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        rvShoes.setAdapter(shoesAdapter);
 
     }
 
