@@ -3,6 +3,7 @@ package com.nurzainpradana.ecommercesepatu.ui.categories;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,9 +18,12 @@ import java.util.List;
 class ShoesAdapter extends RecyclerView.Adapter<ShoesAdapter.ViewHolder> {
 
     private List<HomeModel> rvData;
+    private ItemAdapterCallback itemAdapterCallback;
 
-    public ShoesAdapter(List<HomeModel> listData) {
+    public ShoesAdapter(List<HomeModel> listData, ItemAdapterCallback mItemAdapterCallback) {
         rvData = listData;
+        itemAdapterCallback = mItemAdapterCallback;
+
     }
     @NonNull
     @Override
@@ -34,6 +38,12 @@ class ShoesAdapter extends RecyclerView.Adapter<ShoesAdapter.ViewHolder> {
          //Fungsi untuk menampilkan data
 
         holder.tvDiskon.setText(rvData.get(position).getDiskonProduct());
+        holder.ivPoster.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                itemAdapterCallback.onClick(v);
+            }
+        });
     }
 
     @Override
@@ -42,12 +52,17 @@ class ShoesAdapter extends RecyclerView.Adapter<ShoesAdapter.ViewHolder> {
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView tvDiskon ;
+        public TextView tvDiskon;
+        public ImageView ivPoster;
 
         public ViewHolder(View v){
             super(v);
             tvDiskon = v.findViewById(R.id.tv_diskon);
+            ivPoster = v.findViewById(R.id.iv_poster);
         }
+    }
 
+    public interface ItemAdapterCallback {
+        void onClick(View view);
     }
 }

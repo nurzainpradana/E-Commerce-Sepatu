@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,7 +21,7 @@ import com.nurzainpradana.ecommercesepatu.model.HomeModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CategoriesAllFragment extends Fragment implements CategoriesAdapter.ItemAdapterCallback{
+public class CategoriesAllFragment extends Fragment implements CategoriesAdapter.ItemAdapterCallback, ShoesAdapter.ItemAdapterCallback{
 
     private RecyclerView rvCategories;
     private List<CategoriesModel> categoriesModelList;
@@ -70,7 +71,7 @@ public class CategoriesAllFragment extends Fragment implements CategoriesAdapter
         shoesModelList.add(new HomeModel(2, "Ariel", "New", "30%", "A"));
         shoesModelList.add(new HomeModel(3, "Ariel", "New", "30%", "A"));
 
-        ShoesAdapter shoesAdapter = new ShoesAdapter(shoesModelList);
+        ShoesAdapter shoesAdapter = new ShoesAdapter(shoesModelList, this);
         rvShoes.setLayoutManager(new GridLayoutManager(getContext(), 2));
         rvShoes.setAdapter(shoesAdapter);
 
@@ -78,6 +79,6 @@ public class CategoriesAllFragment extends Fragment implements CategoriesAdapter
 
     @Override
     public void onClick(View view) {
-
+        Navigation.findNavController(view).navigate(R.id.action_categories_fragment_to_detail_fragment);
     }
 }

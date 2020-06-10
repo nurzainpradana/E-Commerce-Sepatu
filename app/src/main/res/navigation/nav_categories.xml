@@ -9,6 +9,15 @@
         android:name="com.nurzainpradana.ecommercesepatu.ui.categories.CategoriesAllFragment"
         android:label="Categories"
         tools:layout="@layout/fragment_categories_all">
+        <action
+            android:id="@+id/action_categories_fragment_to_detail_fragment"
+            app:destination="@id/detail_fragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/detail_fragment"
+        android:name="com.nurzainpradana.ecommercesepatu.ui.detail.DetailFragment"
+        android:label="Detail Produk"
+        tools:layout="@layout/fragment_detail"/>
 
 </navigation>
