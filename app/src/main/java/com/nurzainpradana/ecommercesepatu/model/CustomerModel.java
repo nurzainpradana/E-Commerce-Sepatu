@@ -1,6 +1,7 @@
 package com.nurzainpradana.ecommercesepatu.model;
 
 import com.midtrans.sdk.corekit.core.TransactionRequest;
+import com.midtrans.sdk.corekit.models.BankType;
 import com.midtrans.sdk.corekit.models.CustomerDetails;
 import com.midtrans.sdk.corekit.models.ItemDetails;
 import com.midtrans.sdk.corekit.models.snap.Authentication;
@@ -37,6 +38,7 @@ public class CustomerModel {
         CreditCard creditCard =  new CreditCard();
         creditCard.setSaveCard(false);
         creditCard.setAuthentication(Authentication.AUTH_RBA);
+        creditCard.setBank(BankType.MANDIRI);
 
         transactionRequest.setCreditCard(creditCard);
 
