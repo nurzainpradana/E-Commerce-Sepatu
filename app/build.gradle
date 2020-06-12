@@ -32,6 +32,9 @@ android {
             buildConfigField "String", "BASE_URL", "\"https://zainpradana.com/ecommercesepatu/midtrans-index.php/\""
             buildConfigField "String", "CLIENT_KEY", "\"SB-Mid-client-et1wj7W8LyB0hgTh\""
             buildConfigField "String", "RAJA_URL", "\"https://api.rajaongkir.com/starter/\""
+            buildConfigField "String", "SHOP_URL", "\"https://api.bagicode.com/Ecom/\""
+            buildConfigField "String", "RAJA_KEY", "\"17e49d9d9b683ab60a38dcfec5bb856b\""
+            buildConfigField "String", "RAJA_ANDROID", "\"Android\""
         }
     }
 }
@@ -53,5 +56,8 @@ dependencies {
     //Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.8.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
+
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
 
 }
