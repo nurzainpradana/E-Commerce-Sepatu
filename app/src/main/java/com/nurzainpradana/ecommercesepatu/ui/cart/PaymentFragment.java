@@ -1,6 +1,5 @@
 package com.nurzainpradana.ecommercesepatu.ui.cart;
 
-import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,13 +10,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.midtrans.sdk.corekit.callback.TransactionFinishedCallback;
+import com.midtrans.sdk.corekit.core.MidtransSDK;
+import com.midtrans.sdk.corekit.core.PaymentMethod;
 import com.midtrans.sdk.corekit.core.themes.CustomColorTheme;
 import com.midtrans.sdk.corekit.models.snap.TransactionResult;
-import com.midtrans.sdk.uikit.BuildConfig;
 import com.midtrans.sdk.uikit.SdkUIFlowBuilder;
+import com.nurzainpradana.ecommercesepatu.BuildConfig;
 import com.nurzainpradana.ecommercesepatu.R;
+import com.nurzainpradana.ecommercesepatu.model.CustomerModel;
 
 
 public class PaymentFragment extends Fragment implements TransactionFinishedCallback {
@@ -57,6 +60,12 @@ public class PaymentFragment extends Fragment implements TransactionFinishedCall
             @Override
             public void onClick(View v) {
                 //action
+                MidtransSDK.getInstance().setTransactionRequest(CustomerModel.transactionRequest(
+                        "ZN001",
+                        500000,
+                        1,
+                        "Adidas Falcon"));
+                MidtransSDK.getInstance().startPaymentUiFlow(getActivity(), PaymentMethod.BANK_TRANSFER_MANDIRI);
             }
         });
     }
@@ -77,6 +86,32 @@ public class PaymentFragment extends Fragment implements TransactionFinishedCall
 
     @Override
     public void onTransactionFinished(TransactionResult transactionResult) {
+        //untuk result
+        if (transactionResult.getResponse() != null) {
+            switch (transactionResult.getStatus()) {
+                case TransactionResult.STATUS_SUCCESS:
+                    Toast.makeText(getActivity(), "Transaksi Sukses dengan ID " + transactionResult.getResponse().getTransactionId(), Toast.LENGTH_SHORT).show();
+                    break;
 
+                    case TransactionResult.STATUS_PENDING:
+                    Toast.makeText(getActivity(), "Transaksi Tertunda dengan ID " + transactionResult.getResponse().getTransactionId(), Toast.LENGTH_SHORT).show();
+                    break;
+
+                    case TransactionResult.STATUS_FAILED:
+                    Toast.makeText(getActivity(), "Transaksi Gagal dengan ID " + transactionResult.getResponse().getTransactionId(), Toast.LENGTH_SHORT).show();
+                    break;
+            }
+
+            transactionResult.getResponse().getValidationMessages();
+
+        } else if (transactionResult.isTransactionCanceled()) {
+            Toast.makeText(getActivity(), "Transaksi Dibatalkan", Toast.LENGTH_SHORT).show();
+        } else {
+            if (transactionResult.getStatus().equalsIgnoreCase(TransactionResult.STATUS_INVALID)) {
+                Toast.makeText(getActivity(), "Transaksi Invalid", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getActivity(), "Transaksi Finish with Fail", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

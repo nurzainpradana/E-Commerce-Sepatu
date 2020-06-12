@@ -24,13 +24,8 @@ android {
     flavorDimensions "mode"
     productFlavors {
         sandbox {
-            buildConfigField "String", "BASE_URL", "\"https://zainpradana.com/ecommercesepatu/midtrans-index.php\""
+            buildConfigField "String", "BASE_URL", "\"https://zainpradana.com/ecommercesepatu/midtrans-index.php/\""
             buildConfigField "String", "CLIENT_KEY", "\"SB-Mid-client-et1wj7W8LyB0hgTh\""
-        }
-
-        production {
-            buildConfigField "String", "BASE_URL", "\"https://merchant-url-production.com/\""
-            buildConfigField "String", "CLIENT_KEY", "\"VT-CLIENT-production-client-key\""
         }
     }
 }
@@ -46,5 +41,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    implementation 'com.midtrans:uikit:1.23.1-SANDBOX' // change the number to the latest version
+    sandboxImplementation 'com.midtrans:uikit:1.23.1-SANDBOX' // change the number to the latest version
 }
