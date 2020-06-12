@@ -26,6 +26,8 @@ android {
         sandbox {
             buildConfigField "String", "BASE_URL", "\"https://zainpradana.com/ecommercesepatu/midtrans-index.php/\""
             buildConfigField "String", "CLIENT_KEY", "\"SB-Mid-client-et1wj7W8LyB0hgTh\""
+            buildConfigField "String", "RAJA_URL", "\"https://api.rajaongkir.com/starter/\""
+
         }
     }
 }
