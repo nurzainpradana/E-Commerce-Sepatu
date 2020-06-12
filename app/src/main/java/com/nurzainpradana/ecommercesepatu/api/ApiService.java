@@ -10,7 +10,7 @@ import retrofit2.http.POST;
 public interface ApiService {
 
     @FormUrlEncoded
-    @POST
+    @POST("https://api.rajaongkir.com/starter/cost")
     Call<ItemCost> getCost(
             @Field("key") String token,
             @Field("android-key") String android,

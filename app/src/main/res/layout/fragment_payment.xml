@@ -5,7 +5,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/layout_payment_detail"/>
+    <include
+        android:id="@+id/includeDetail"
+        layout="@layout/layout_payment_detail"/>
 
     <include layout="@layout/layout_shipping_item"/>
     

@@ -20,6 +20,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 
     flavorDimensions "mode"
     productFlavors {
@@ -27,7 +32,6 @@ android {
             buildConfigField "String", "BASE_URL", "\"https://zainpradana.com/ecommercesepatu/midtrans-index.php/\""
             buildConfigField "String", "CLIENT_KEY", "\"SB-Mid-client-et1wj7W8LyB0hgTh\""
             buildConfigField "String", "RAJA_URL", "\"https://api.rajaongkir.com/starter/\""
-
         }
     }
 }
