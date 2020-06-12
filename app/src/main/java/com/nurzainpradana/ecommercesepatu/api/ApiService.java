@@ -1,11 +1,14 @@
 package com.nurzainpradana.ecommercesepatu.api;
 
 import com.nurzainpradana.ecommercesepatu.model.cost.ItemCost;
+import com.nurzainpradana.ecommercesepatu.model.home.ItemProdukResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface ApiService {
 
@@ -18,5 +21,12 @@ public interface ApiService {
             @Field("destination") String destination,
             @Field("weight") String weight,
             @Field("courier") String courier
+    );
+
+    @FormUrlEncoded
+    @GET("http://api.bagicode.com/Ecom/shop.php")
+    Call<ItemProdukResponse> getProduct(
+            //parameter pakai query
+            @Query("code_apps") String code_apps
     );
 }
