@@ -18,7 +18,10 @@ import android.widget.Button;
 import com.nurzainpradana.ecommercesepatu.R;
 import com.nurzainpradana.ecommercesepatu.model.ColorsModel;
 import com.nurzainpradana.ecommercesepatu.model.SizeModel;
+import com.nurzainpradana.ecommercesepatu.model.home.Casual;
+import com.nurzainpradana.ecommercesepatu.model.home.Sport;
 import com.nurzainpradana.ecommercesepatu.ui.cart.CartActivity;
+import com.nurzainpradana.ecommercesepatu.utils.Const;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +34,13 @@ public class DetailFragment extends Fragment implements ColorAdapter.ItemAdapter
     private RecyclerView rvSize;
     private List<SizeModel> sizeModelList;
 
+    private String dataStatus;
+    private Sport dataSport;
+    private Casual dataCasual;
+
     private Button btnAddToCart;
+
+
 
     public DetailFragment() {
         // Required empty public constructor
@@ -61,6 +70,19 @@ public class DetailFragment extends Fragment implements ColorAdapter.ItemAdapter
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        dataStatus = getArguments().getString(new Const().INTENT_DETAIL_STATUS);
+        if (dataStatus.equalsIgnoreCase(new Const().SPORT)) {
+            dataSport = getArguments().getParcelable(new Const().INTENT_DETAIL);
+            if (dataSport != null) {
+                initView(dataSport);
+            }
+        } else {
+            dataCasual = getArguments().getParcelable(new Const().INTENT_DETAIL);
+            if (dataCasual != null) {
+                initView(dataCasual);
+            }
+        }
 
         colorsModelList = new ArrayList<>();
         colorsModelList.add(new ColorsModel(1, R.color.colorAccent));
@@ -96,6 +118,12 @@ public class DetailFragment extends Fragment implements ColorAdapter.ItemAdapter
             }
         });
 
+    }
+
+    private void initView(Sport dataSport) {
+    }
+
+    private void initView(Casual dataCasual) {
     }
 
     @Override
