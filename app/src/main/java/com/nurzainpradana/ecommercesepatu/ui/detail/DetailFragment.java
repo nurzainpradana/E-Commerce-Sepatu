@@ -25,6 +25,7 @@ import com.nurzainpradana.ecommercesepatu.model.home.Casual;
 import com.nurzainpradana.ecommercesepatu.model.home.Sport;
 import com.nurzainpradana.ecommercesepatu.ui.cart.CartActivity;
 import com.nurzainpradana.ecommercesepatu.utils.Const;
+import com.nurzainpradana.ecommercesepatu.utils.Extension;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -141,8 +142,8 @@ public class DetailFragment extends Fragment implements ColorAdapter.ItemAdapter
          tvTitle.setText(dataSport.getTitle());
          tvDescription.setText(dataSport.getDesc());
          tvDiscount.setText(dataSport.getDisc());
-         tvPriceDiscount.setText(dataSport.getPricePromo());
-         tvPrice.setText(dataSport.getPrice());
+         tvPriceDiscount.setText(new Extension().convertPrice(dataSport.getPricePromo()));
+         tvPrice.setText(new Extension().convertPrice(dataSport.getPrice()));
 
          Glide.with(getContext()).load(dataSport.getPoster()).into(ivPoster);
     }
@@ -151,8 +152,8 @@ public class DetailFragment extends Fragment implements ColorAdapter.ItemAdapter
         tvTitle.setText(dataCasual.getTitle());
         tvDescription.setText(dataCasual.getDesc());
         tvDiscount.setText(dataCasual.getDisc());
-        tvPriceDiscount.setText(dataCasual.getPricePromo());
-        tvPrice.setText(dataCasual.getPrice());
+        tvPriceDiscount.setText(new Extension().convertPrice(dataCasual.getPricePromo()));
+        tvPrice.setText(new Extension().convertPrice(dataCasual.getPrice()));
 
         Glide.with(getContext()).load(dataCasual.getPoster()).into(ivPoster);
     }
