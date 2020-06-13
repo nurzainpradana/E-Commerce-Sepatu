@@ -11,12 +11,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.nurzainpradana.ecommercesepatu.R;
 
 public class CartFragment extends Fragment {
 
     private Button btnCheckout;
+    private LinearLayout layoutCartCheckout;
+    private LinearLayout layoutEmpty;
+    private RelativeLayout layoutCartDetail;
+
+    private CartPreference cartPreference;
+
 
     public CartFragment() {
         // Required empty public constructor
@@ -34,11 +42,22 @@ public class CartFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         btnCheckout = view.findViewById(R.id.btn_checkout);
+
+        layoutCartDetail = view.findViewById(R.id.layout_cart_detail);
+        layoutCartCheckout = view.findViewById(R.id.layout_cart_checkout);
+        layoutEmpty = view.findViewById(R.id.layout_empty);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        cartPreference = new CartPreference(getContext());
+        if (cartPreference.getSpId().isEmpty()) {
+            layoutEmpty.setVisibility(View.VISIBLE);
+            layoutCartDetail.setVisibility(View.GONE);
+            layoutCartCheckout.setVisibility(View.GONE);
+        }
 
         btnCheckout.setOnClickListener(new View.OnClickListener() {
             @Override
