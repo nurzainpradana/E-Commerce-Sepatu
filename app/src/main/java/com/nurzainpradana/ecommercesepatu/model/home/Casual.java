@@ -1,9 +1,12 @@
 package com.nurzainpradana.ecommercesepatu.model.home;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Casual {
+public class Casual implements Parcelable {
 
     @SerializedName("code")
     @Expose
@@ -29,6 +32,46 @@ public class Casual {
     @SerializedName("price_real")
     @Expose
     private String priceReal;
+
+    protected Casual(Parcel in) {
+        code = in.readString();
+        poster = in.readString();
+        disc = in.readString();
+        title = in.readString();
+        desc = in.readString();
+        price = in.readString();
+        pricePromo = in.readString();
+        priceReal = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(code);
+        dest.writeString(poster);
+        dest.writeString(disc);
+        dest.writeString(title);
+        dest.writeString(desc);
+        dest.writeString(price);
+        dest.writeString(pricePromo);
+        dest.writeString(priceReal);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    public static final Creator<Casual> CREATOR = new Creator<Casual>() {
+        @Override
+        public Casual createFromParcel(Parcel in) {
+            return new Casual(in);
+        }
+
+        @Override
+        public Casual[] newArray(int size) {
+            return new Casual[size];
+        }
+    };
 
     public String getCode() {
         return code;

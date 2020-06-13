@@ -111,10 +111,7 @@ public class HomeFragment extends Fragment implements SportAdapter.ItemAdapterCa
         getData();
     }
 
-    @Override
-    public void onClick(View view) {
-        Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_detailFragment);
-    }
+
 
     private void getData() {
 
@@ -174,5 +171,24 @@ public class HomeFragment extends Fragment implements SportAdapter.ItemAdapterCa
         SportAdapter sportAdapter = new SportAdapter(sport, this);
         rvSport.setLayoutManager(linearLayoutManager);
         rvSport.setAdapter(sportAdapter);
+    }
+
+    @Override
+    public void onClickCasual(View view, Casual casual) {
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(new Const().INTENT_DETAIL, casual);
+        bundle.putString(new Const().INTENT_DETAIL_STATUS, new Const().CASUAL);
+
+        Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_detailFragment, bundle);
+    }
+
+    @Override
+    public void onClickSport(View view, Sport sport) {
+
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(new Const().INTENT_DETAIL, sport);
+        bundle.putString(new Const().INTENT_DETAIL_STATUS, new Const().SPORT);
+
+        Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_detailFragment, bundle);
     }
 }

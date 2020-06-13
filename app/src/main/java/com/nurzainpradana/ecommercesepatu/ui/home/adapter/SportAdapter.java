@@ -43,7 +43,7 @@ public class SportAdapter extends RecyclerView.Adapter<SportAdapter.ViewHolder> 
         holder.ivPoster.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                itemAdapterCallback.onClick(v);
+                itemAdapterCallback.onClickSport(v, rvData.get(position));
             }
         });
     }
@@ -67,6 +67,6 @@ public class SportAdapter extends RecyclerView.Adapter<SportAdapter.ViewHolder> 
     }
 
     public interface ItemAdapterCallback {
-        void onClick(View view);
+        void onClickSport(View view, Sport sport);
     }
 }
