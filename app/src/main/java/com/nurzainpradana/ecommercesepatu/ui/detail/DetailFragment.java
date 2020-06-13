@@ -24,6 +24,7 @@ import com.nurzainpradana.ecommercesepatu.model.SizeModel;
 import com.nurzainpradana.ecommercesepatu.model.home.Casual;
 import com.nurzainpradana.ecommercesepatu.model.home.Sport;
 import com.nurzainpradana.ecommercesepatu.ui.cart.CartActivity;
+import com.nurzainpradana.ecommercesepatu.ui.cart.CartPreference;
 import com.nurzainpradana.ecommercesepatu.utils.Const;
 import com.nurzainpradana.ecommercesepatu.utils.Extension;
 
@@ -50,6 +51,8 @@ public class DetailFragment extends Fragment implements ColorAdapter.ItemAdapter
     private TextView tvDiscount;
 
     private Button btnAddToCart;
+
+    private CartPreference cartPreference;
 
 
 
@@ -88,6 +91,8 @@ public class DetailFragment extends Fragment implements ColorAdapter.ItemAdapter
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        cartPreference = new CartPreference(getContext());
 
         dataStatus = getArguments().getString(new Const().INTENT_DETAIL_STATUS);
         if (dataStatus.equalsIgnoreCase(new Const().SPORT)) {
@@ -132,6 +137,30 @@ public class DetailFragment extends Fragment implements ColorAdapter.ItemAdapter
             @Override
             public void onClick(View v) {
                 Intent goToCart = new Intent(getActivity(), CartActivity.class);
+
+                if (dataStatus.equalsIgnoreCase(new Const().SPORT)) {
+                    if (dataSport != null) {
+                        cartPreference.saveSpString(CartPreference.KEY_ID, dataSport.getCode());
+                        cartPreference.saveSpString(CartPreference.KEY_TITLE, dataSport.getTitle());
+                        cartPreference.saveSpString(CartPreference.KEY_POSTER, dataSport.getPoster());
+                        cartPreference.saveSpString(CartPreference.KEY_DISCOUNT, dataSport.getDisc());
+                        cartPreference.saveSpString(CartPreference.KEY_DESC, dataSport.getDesc());
+                        cartPreference.saveSpInteger(CartPreference.KEY_PRICE, Integer.parseInt(dataSport.getPriceReal()));
+                        cartPreference.saveSpString(CartPreference.KEY_PRICE_DISCOUNT, dataSport.getPricePromo());
+
+                    }
+                } else {
+                    if (dataCasual != null) {
+                        cartPreference.saveSpString(CartPreference.KEY_ID, dataCasual.getCode());
+                        cartPreference.saveSpString(CartPreference.KEY_TITLE, dataCasual.getTitle());
+                        cartPreference.saveSpString(CartPreference.KEY_POSTER, dataCasual.getPoster());
+                        cartPreference.saveSpString(CartPreference.KEY_DISCOUNT, dataCasual.getDisc());
+                        cartPreference.saveSpString(CartPreference.KEY_DESC, dataCasual.getDesc());
+                        cartPreference.saveSpInteger(CartPreference.KEY_PRICE, Integer.parseInt(dataCasual.getPriceReal()));
+                        cartPreference.saveSpString(CartPreference.KEY_PRICE_DISCOUNT, dataCasual.getPricePromo());
+                    }
+                }
+
                 startActivity(goToCart);
             }
         });
