@@ -14,7 +14,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.nurzainpradana.ecommercesepatu.R;
 import com.nurzainpradana.ecommercesepatu.model.ColorsModel;
 import com.nurzainpradana.ecommercesepatu.model.SizeModel;
@@ -37,6 +40,13 @@ public class DetailFragment extends Fragment implements ColorAdapter.ItemAdapter
     private String dataStatus;
     private Sport dataSport;
     private Casual dataCasual;
+
+    private ImageView ivPoster;
+    private TextView tvTitle;
+    private TextView tvPrice;
+    private TextView tvPriceDiscount;
+    private TextView tvDescription;
+    private TextView tvDiscount;
 
     private Button btnAddToCart;
 
@@ -65,6 +75,13 @@ public class DetailFragment extends Fragment implements ColorAdapter.ItemAdapter
         rvColors = view.findViewById(R.id.rv_colors);
         rvSize = view.findViewById(R.id.rv_size);
         btnAddToCart = view.findViewById(R.id.btn_add_to_cart);
+
+        ivPoster = view.findViewById(R.id.iv_poster);
+        tvTitle = view.findViewById(R.id.tv_title);
+        tvDescription = view.findViewById(R.id.tv_description);
+        tvDiscount = view.findViewById(R.id.tv_discount);
+        tvPrice = view.findViewById(R.id.tv_price);
+        tvPriceDiscount = view.findViewById(R.id.tv_price_discount);
     }
 
     @Override
@@ -121,9 +138,23 @@ public class DetailFragment extends Fragment implements ColorAdapter.ItemAdapter
     }
 
     private void initView(Sport dataSport) {
+         tvTitle.setText(dataSport.getTitle());
+         tvDescription.setText(dataSport.getDesc());
+         tvDiscount.setText(dataSport.getDisc());
+         tvPriceDiscount.setText(dataSport.getPricePromo());
+         tvPrice.setText(dataSport.getPrice());
+
+         Glide.with(getContext()).load(dataSport.getPoster()).into(ivPoster);
     }
 
     private void initView(Casual dataCasual) {
+        tvTitle.setText(dataCasual.getTitle());
+        tvDescription.setText(dataCasual.getDesc());
+        tvDiscount.setText(dataCasual.getDisc());
+        tvPriceDiscount.setText(dataCasual.getPricePromo());
+        tvPrice.setText(dataCasual.getPrice());
+
+        Glide.with(getContext()).load(dataCasual.getPoster()).into(ivPoster);
     }
 
     @Override

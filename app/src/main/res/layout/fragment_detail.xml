@@ -12,7 +12,7 @@
 
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/iv_poster"
             android:layout_width="0dp"
             android:layout_height="350dp"
             android:scaleType="centerCrop"
@@ -34,10 +34,10 @@
             android:textSize="11sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+            app:layout_constraintTop_toBottomOf="@+id/iv_poster" />
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/tv_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -52,7 +52,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
         <TextView
-            android:id="@+id/textView13"
+            android:id="@+id/tv_discount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -62,12 +62,12 @@
             android:text="30% Off"
             android:textColor="@color/colorWhite"
             android:textSize="8sp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView14"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_price"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView14" />
+            app:layout_constraintTop_toTopOf="@+id/tv_price" />
 
         <TextView
-            android:id="@+id/textView14"
+            android:id="@+id/tv_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
@@ -76,20 +76,20 @@
             android:text="Rp. 1.000.000"
             android:textColor="@color/colorPink"
             android:textSize="18sp"
-            app:layout_constraintStart_toEndOf="@+id/textView13"
-            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+            app:layout_constraintStart_toEndOf="@+id/tv_discount"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
         <TextView
-            android:id="@+id/textView15"
+            android:id="@+id/tv_price_discount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:fontFamily="@font/poppins"
             android:text="Rp. 250.000"
             android:textStyle="italic"
-            app:layout_constraintBottom_toBottomOf="@+id/textView14"
-            app:layout_constraintStart_toEndOf="@+id/textView14"
-            app:layout_constraintTop_toTopOf="@+id/textView14" />
+            app:layout_constraintBottom_toBottomOf="@+id/tv_price"
+            app:layout_constraintStart_toEndOf="@+id/tv_price"
+            app:layout_constraintTop_toTopOf="@+id/tv_price" />
 
         <TextView
             android:id="@+id/textView16"
@@ -102,10 +102,10 @@
             android:textColor="@color/colorBlack"
             android:textSize="13sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_price" />
 
         <TextView
-            android:id="@+id/textView17"
+            android:id="@+id/tv_description"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -129,7 +129,7 @@
             android:textColor="@color/colorBlack"
             android:textSize="13sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView17" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_description" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_colors"
