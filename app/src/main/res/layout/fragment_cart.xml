@@ -107,4 +107,24 @@
                 android:layout_height="wrap_content"/>
         </LinearLayout>
     </LinearLayout>
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/layout_empty"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_empty"/>
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins"
+            android:textSize="16sp"
+            android:text="Keranjang Anda Kosong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
 </RelativeLayout>
