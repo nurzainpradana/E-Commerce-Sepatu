@@ -23,8 +23,7 @@ public interface ApiService {
             @Field("courier") String courier
     );
 
-    @FormUrlEncoded
-    @GET("http://api.bagicode.com/Ecom/shop.php")
+    @GET("https://api.bagicode.com/Ecom/shop.php")
     Call<ItemProdukResponse> getProduct(
             //parameter pakai query
             @Query("code_apps") String code_apps

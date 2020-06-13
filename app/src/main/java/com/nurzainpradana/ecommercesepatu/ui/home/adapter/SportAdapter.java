@@ -1,5 +1,6 @@
-package com.nurzainpradana.ecommercesepatu.ui.home;
+package com.nurzainpradana.ecommercesepatu.ui.home.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,32 +10,36 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.nurzainpradana.ecommercesepatu.R;
-import com.nurzainpradana.ecommercesepatu.model.HomeModel;
+import com.nurzainpradana.ecommercesepatu.model.home.Sport;
 
 import java.util.List;
 
-class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.ViewHolder> {
+public class SportAdapter extends RecyclerView.Adapter<SportAdapter.ViewHolder> {
 
-    private List<HomeModel> rvData;
+    private List<Sport> rvData;
     private ItemAdapterCallback itemAdapterCallback;
+    private Context context;
 
-    public HomeAdapter(List<HomeModel> listData, ItemAdapterCallback mItemAdapterCallback) {
+    public SportAdapter(List<Sport> listData, ItemAdapterCallback mItemAdapterCallback) {
         rvData = listData;
         itemAdapterCallback = mItemAdapterCallback;
     }
     @NonNull
     @Override
-    public HomeAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public SportAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        context = parent.getContext();
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_diskon, parent, false);
         ViewHolder viewHolder = new ViewHolder(v);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HomeAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull SportAdapter.ViewHolder holder, int position) {
          //Fungsi untuk menampilkan data
-        holder.tvDiskon.setText(rvData.get(position).getDiskonProduct());
+        holder.tvDiskon.setText(rvData.get(position).getDisc());
+        Glide.with(context).load(rvData.get(position).getPoster()).into(holder.ivPoster);
         holder.ivPoster.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
